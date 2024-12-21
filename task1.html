@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+           
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            width: fit-content;
+            text-align: center;
+        }
+        .userForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .userForm input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 200px;
+        }
+        .userForm button {
+            padding: 5px 10px;
+            background-color: #066c8b;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Details</h1>
+    <form class="userForm">
+        <input type="text" class="name" placeholder="Your Name" >
+        <input type="number" class="age" placeholder="Your Age" >
+        <input type="text" class="hobby" placeholder="Your Hobby" >
+        <button type="submit">Show message </button>
+    </form>
+    <div class="output"></div>
+
+    <script>
+        document.querySelector(".userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.querySelector(".name").value;
+            const age = document.querySelector(".age").value;
+            const hobby = document.querySelector(".hobby").value;
+
+            if (!name || !age || !hobby) {
+                alert("Please fill in all fields.");
+                return;
+            }
+               
+
+            const message = `Welcome, ${name}! You are ${age} years old and your hobby is ${hobby}.`;
+            const outputDiv = document.querySelector(".output");
+            outputDiv.innerHTML = message;
+            outputDiv.style.color = "blue";
+            outputDiv.style.fontSize = "18px";
+        });
+    </script>
+</body>
+</html>
